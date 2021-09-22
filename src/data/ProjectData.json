@@ -1,0 +1,43 @@
+[
+
+  {
+    "title": "Ophella",
+    "slug": "ophella",
+    "category": "System",
+    "short_description": "En webbapplikationen skapad för att förenkla dagsrapportering av arbetstid.",
+    "description": "Ophella skapades för att underlätta inrapportering av arbetstiden. Applikationen är anpassningspar och skalbar för olika miljöer.",
+    "frontend": "React.js, styled-components",
+    "backend": "Node.js, Express.js, PostgreSQL",
+    "image": "./images/ophella.jpg"
+  },
+  {
+    "title": "Indiska Thé och Kaffemagasinet",
+    "slug": "indiska-the-och-kaffemagasinet",
+    "category": "Webbplats",
+    "short_description": "Webbplats åt Göteborgs äldsta te- och kaffebutik.",
+    "description": "Denna webbplats skapades under mina studuier på högskolan som ett skolprojekt. Webbplatsen är skapad med Wordpress.",
+    "frontend": "Wordpress",
+    "backend": "",
+    "image": "./images/indiskatheochkaffemagasinet.jpg"
+  },
+  {
+    "title": "Ledstar",
+    "slug": "ledstar",
+    "category": "Webbplats",
+    "short_description": "Webbplats åt märket belysningstillverkaren Ledstar.",
+    "description": "En webbplats åt den svenska marknaden för belysningstillverkaren Ledstar. Ledstar är baserad i Kina och har sedan 2007 fokuserat på att producera högkvalitetsbelysningar av LED-chip från premiumtillverkare som CREE och Epistar.",
+    "frontend": "Next.js, styled-components",
+    "backend": "Strapi",
+    "image": "./images/ophella.jpg"
+  },
+  {
+    "title": "Kaguya",
+    "slug": "kaguya",
+    "category": "Socialt nätverk",
+    "short_description": "Mer information kommer inom kort.",
+    "description": "Mer information kommer inom kort.",
+    "frontend": "Next.js, styled-components",
+    "backend": "Node.js, Express.js, PostgreSQL, Strapi",
+    "image": "./images/ophella.jpg"
+  }
+]

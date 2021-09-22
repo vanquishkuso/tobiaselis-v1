@@ -4,14 +4,18 @@ module.exports = {
     title: "tobiaselis",
   },
   plugins: [
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-image",
+    "gatsby-transformer-json",
+    "gatsby-transformer-sharp",
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: "gatsby-source-filesystem",
       options: {
-        trackingId: "",
+        name: "data",
+        path: "./src/data/",
       },
     },
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
@@ -19,16 +23,6 @@ module.exports = {
       options: {
         icon: "src/images/icon.png",
       },
-    },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
-      },
-      __key: "images",
     },
   ],
 };

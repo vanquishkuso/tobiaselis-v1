@@ -1,0 +1,10 @@
+[
+  {
+    "title": "background-image",
+    "image": "./images/background.jpg"
+  },
+  {
+    "title": "computer",
+    "image": "./images/computer.jpg"
+  }
+]
