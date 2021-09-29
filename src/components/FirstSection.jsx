@@ -2,6 +2,9 @@ import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
+import FastSystem from "../assets/undraw_fast_loading_re_8oi3.svg";
+import { FaTemperatureHigh } from "react-icons/fa";
+import FastDeveloper from "../assets/undraw_Developer_activity_re_39tg.svg";
 
 const FirstSection = () => {
   const data = useStaticQuery(graphql`
@@ -27,18 +30,16 @@ const FirstSection = () => {
     const sections = [];
     data.allSectionDataJson.edges.forEach((item, i) => {
       sections.push(
-        <SectionWrapper>
-          <Header>{item.node.title}</Header>
+        <SectionWrapper order={i} style={{minHeight: "75vh"}}>
+          <Header order={i}>{item.node.title}</Header>
           <Wrapper>
-            <Img
+            {/* <Img
               image={item.node.image.childImageSharp.gatsbyImageData}
               style={{ order: i }}
-            />
-            <TextWrapper>
-              <Text>
-                {item.node.description}
-              </Text>
-
+            /> */}
+            {i === 0 ? <Illustration order={0} /> : <Illustration2 order={1} />}
+            <TextWrapper order={i === 0 ? true : false}>
+              <Text order={i} >{item.node.description}</Text>
             </TextWrapper>
           </Wrapper>
         </SectionWrapper>
@@ -53,7 +54,6 @@ export default FirstSection;
 
 const Container = styled.div`
   min-height: 100vh;
-  padding: 5rem calc((100vw - 1300px) / 2);
   color: #fff;
 `;
 
@@ -72,32 +72,42 @@ const Wrapper = styled.div`
 `;
 
 const SectionWrapper = styled.div`
-  padding-bottom: 10rem;
+  margin: 0 auto;
+  padding: 5rem calc((100vw - 1300px) / 2);
+  ${({ order }) =>
+    order == 0 ? `background-color: #fff` : "background-color:  #5c38c0"};
+    
 
   @media screen and (max-width: 768px) {
-    padding-bottom: 5rem;
+    ${({ order }) => order == 0 ? "padding-bottom: 3rem" : "padding-bottom: 12rem"};
+
   }
+
 `;
 
-const Img = styled(GatsbyImage)`
-  width: clamp(20vw, 100%, 100%);
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  @media screen and (max-width: 768px) {
-    width: 90%;
-    order: 0 !important;
-  }
-`;
+  
+
+// const Img = styled(GatsbyImage)`
+//   width: clamp(20vw, 100%, 100%);
+//   height: 100%;
+//   -o-object-fit: cover;
+//   object-fit: cover;
+//   border-radius: 10px;
+//   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+//   @media screen and (max-width: 768px) {
+//     width: 90%;
+//     order: 0 !important;
+//   }
+// `;
 
 const Header = styled.h1`
   font-size: clamp(2rem, 5vw, 2.5rem);
   text-align: center;
   margin-bottom: 5rem;
-  color: #222222;
-  font-weight: 300;
+  color: #272727;
+  margin-top: 1rem;
+  font-weight: 500;
+  ${({ order }) => (order == 1 ? "color: #f8f8f8" : "color: #272727")}
 `;
 
 const Text = styled.p`
@@ -105,6 +115,7 @@ const Text = styled.p`
   font-size: 1.2rem;
   color: #222222;
   margin-bottom: 1em;
+  ${({ order }) => (order == 1 ? "color: #f8f8f8" : "color: #272727")}
 `;
 
 const TextWrapper = styled.div`
@@ -112,4 +123,65 @@ const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
+  
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem;
+  }
+
+  ${({ order }) =>
+    order == 0
+      ? `  @media screen and (max-width: 768px) {
+    margin-top: -10em;
+  }`
+      : ""}
+
+  ${({ order }) =>
+    order &&
+    `
+  @media screen and (max-width: 768px) {
+    margin-top: -10em;
+  }
+    `}
+`;
+
+const Illustration = styled(FastSystem)`
+  width: 90%;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: -5em;
+  @media screen and (max-width: 768px) {
+    margin-top: -15em;
+    width: clamp(50%, 65%, 100%);
+  }
+
+  ${({ order }) =>
+    order === 1
+      ? `
+      order 1; @media screen and (max-width: 768px) {
+    order: 0;
+  }`
+      : `@media screen and (max-width: 768px) {
+    order: 0;
+  }`}
+`;
+
+const Illustration2 = styled(FastDeveloper)`
+  width: 90%;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: -5em;
+  @media screen and (max-width: 768px) {
+    margin-top: -15em;
+    width: clamp(50%, 65%, 100%);
+  }
+
+  ${({ order }) =>
+    order === 1
+      ? `
+      order 1; @media screen and (max-width: 768px) {
+    order: 0;
+  }`
+      : `@media screen and (max-width: 768px) {
+    order: 0;
+  }`}
 `;

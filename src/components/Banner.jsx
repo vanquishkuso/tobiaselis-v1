@@ -1,18 +1,18 @@
 import { GatsbyImage } from "gatsby-plugin-image";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Button } from "./Button";
 import { graphql, useStaticQuery } from "gatsby";
-import posed from "react-pose";
 import SplitText from "react-pose-text";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const HeaderAnimation = {
-  exit: {opacity: 0, y: 20},
+  exit: { opacity: 0, y: 20 },
   enter: {
     opacity: 1,
     y: 0,
-    delay: ({charIndex}) => charIndex * 50
-  }
+    delay: ({ charIndex }) => charIndex * 50,
+  },
 };
 
 const Banner = () => {
@@ -28,16 +28,15 @@ const Banner = () => {
     }
   `);
 
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  },[])
-
+    setIsVisible(true);
+  }, []);
 
   return (
     <div>
-      <Container>
+      <Container id="hem">
         <Background>
           <Img
             image={data.imageDataJson.image.childImageSharp.gatsbyImageData}
@@ -45,13 +44,27 @@ const Banner = () => {
         </Background>
         <Content>
           <Items>
-          
-            <Header  initialPose="exit" pose="enter" charPoses={HeaderAnimation}>Effektiv utveckling</Header>
-            {/* <Paragraph  initialPose="exit" pose="enter" charPoses={HeaderAnimation}>wqdwqwd</Paragraph> */}
-            <Button big="true" round="true">
-              Kontakta oss
-            </Button>
-            
+            <TextWrapper>
+              <Header
+                initialPose="exit"
+                pose="enter"
+                charPoses={HeaderAnimation}
+              >
+                Effektiv    webbutveckling
+              </Header>
+              {/* <Paragraph  initialPose="exit" pose="enter" charPoses={HeaderAnimation}>wqdwqwd</Paragraph> */}
+            </TextWrapper>
+            <Link
+              to="kontakt"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={800}
+            >
+              <Button big="true" round="true" primary="true">
+                Kontakta mig
+              </Button>
+            </Link>
           </Items>
         </Content>
       </Container>
@@ -112,6 +125,10 @@ const Content = styled.div`
   height: calc(100vh - 80px);
   max-height: 100%;
   padding: 0rem calc((100vw - 1300px) / 2);
+  color: #f8f8f8;
+  @media screen and (max-width: 768px) {
+    margin-top: 3rem;
+  }
 `;
 
 const Items = styled.div`
@@ -123,21 +140,23 @@ const Items = styled.div`
   height: 100vh;
   max-height: 100%;
   padding: 0;
-  color: #fff;
+  color: #f8f8f8;
   line-height: 1.1;
-  font-weight: bold;
 `;
 
 const Header = styled(SplitText)`
-  font-size: clamp(1.5rem, 6vw, 4rem);
-  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 3.9vw, 4rem);
+  margin-bottom: 0.7rem;
   letter-spacing: 1px;
-  font-weight: bold;
-
+  color: #f8f8f8;
 `;
 
 const Paragraph = styled(SplitText)`
   font-size: clamp(1rem, 3vw, 3rem);
   margin-bottom: 2rem;
   font-weight: 400;
+`;
+
+const TextWrapper = styled.div`
+  margin-bottom: 2rem;
 `;
