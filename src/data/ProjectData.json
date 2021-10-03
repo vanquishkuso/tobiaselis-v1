@@ -8,7 +8,8 @@
     "description": "Ophella skapades för att underlätta inrapportering av arbetstiden. Applikationen är anpassningspar och skalbar för olika miljöer.",
     "frontend": "React.js, styled-components",
     "backend": "Node.js, Express.js, PostgreSQL",
-    "image": "./images/ophella.jpg"
+    "image": "./images/ophella.jpg",
+    "link": "https://ophella.se"
   },
   {
     "title": "Indiska Thé och Kaffemagasinet",
@@ -18,7 +19,8 @@
     "description": "Denna webbplats skapades under mina studuier på högskolan som ett skolprojekt. Webbplatsen är skapad med Wordpress.",
     "frontend": "Wordpress",
     "backend": "",
-    "image": "./images/indiskatheochkaffemagasinet.jpg"
+    "image": "./images/indiskatheochkaffemagasinet.jpg",
+    "link": "https://theochkaffemagasinet.se"
   },
   {
     "title": "Ledstar",
@@ -28,7 +30,8 @@
     "description": "En webbplats åt den svenska marknaden för belysningstillverkaren Ledstar. Ledstar är baserad i Kina och har sedan 2007 fokuserat på att producera högkvalitetsbelysningar av LED-chip från premiumtillverkare som CREE och Epistar.",
     "frontend": "Next.js, styled-components",
     "backend": "Strapi",
-    "image": "./images/lanseras-snart.jpg"
+    "image": "./images/lanseras-snart.jpg",
+    "link": null
   },
   {
     "title": "Kaguya",
@@ -38,6 +41,7 @@
     "description": "Mer information kommer inom kort.",
     "frontend": "Next.js, styled-components",
     "backend": "Node.js, Express.js, PostgreSQL, Strapi",
-    "image": "./images/lanseras-snart.jpg"
+    "image": "./images/lanseras-snart.jpg",
+    "link": null
   }
 ]

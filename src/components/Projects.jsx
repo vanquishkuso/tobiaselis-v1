@@ -18,6 +18,7 @@ const Projects = () => {
             short_description
             slug
             title
+            link
             image {
               childImageSharp {
                 gatsbyImageData(layout: CONSTRAINED)
@@ -39,25 +40,27 @@ const Projects = () => {
               alt={item.node.title}
               image={item.node.image.childImageSharp.gatsbyImageData}
             />
-            </ImageWrapper>
-            <ProjectInfo>
-              <TextWrap>
-                <Category>{item.node.category}</Category>
-                <ProjectTitle>{item.node.title}</ProjectTitle>
-                <p style={{ color: "#f8f8f8" }}>
-                  {item.node.short_description}
-                </p>
-              </TextWrap>
-            </ProjectInfo>
+          </ImageWrapper>
+          <ProjectInfo>
+            <TextWrap>
+              <Category>{item.node.category}</Category>
+              <ProjectTitle>{item.node.title}</ProjectTitle>
+              <p style={{ color: "#f8f8f8" }}>{item.node.short_description}</p>
+            </TextWrap>
+          </ProjectInfo>
+          {item.node.link != null ? (
             <Button
-              to={`/projekt/${item.node.slug}`}
+              to={`/projekt/${item.node.link}`}
+              //  to={`/projekt/${item.node.slug}`}
               primary="true"
               round="true"
               style={{ margin: "0 auto", marginTop: "1em" }}
             >
-              Läs mer
+              Besök webbplatsen
             </Button>
-       
+          ) : (
+            ""
+          )}
         </ProjectCard>
       );
     });
@@ -105,10 +108,10 @@ const ProjectWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-height: 250px;
-margin-bottom: 2rem;
-overflow: hidden;
-`
+  height: 250px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+`;
 
 const ProjectImg = styled(GatsbyImage)`
   height: 100%;
@@ -146,7 +149,6 @@ const ProjectCard = styled.div`
     margin: 0 auto;
   }
 `;
-
 
 const ProjectInfo = styled.p`
   display: flex;
