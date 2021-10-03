@@ -9,6 +9,7 @@ export const query = graphql`
       description
       short_description
       frontend
+      slug
       backend
       id
       image {
