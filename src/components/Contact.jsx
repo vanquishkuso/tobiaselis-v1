@@ -187,7 +187,7 @@ const CheckboxWrapper = styled.div`
 
 const Wrapper = styled.div`
   background-color: #5c38c0;
-  min-height: 80vh;
+  min-height: 75vh;
   padding: 3rem calc((100vw - 1300px) / 2);
 
 `;

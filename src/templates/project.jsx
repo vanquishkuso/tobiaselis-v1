@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 export const query = graphql`
   query ($slug: String!) {
-    projectDataJson(slug: { eq: $slug }) {
+    projectDataJson(slug: {eq: $slug}) {
       title
       description
       short_description
