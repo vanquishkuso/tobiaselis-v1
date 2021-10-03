@@ -1,9 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import { GatsbyImage } from "gatsby-plugin-image";
 import FastSystem from "../assets/undraw_fast_loading_re_8oi3.svg";
-import { FaTemperatureHigh } from "react-icons/fa";
 import FastDeveloper from "../assets/undraw_Developer_activity_re_39tg.svg";
 
 const FirstSection = () => {
@@ -38,7 +36,7 @@ const FirstSection = () => {
               style={{ order: i }}
             /> */}
             {i === 0 ? <Illustration order={0} /> : <Illustration2 order={1} />}
-            <TextWrapper order={i === 0 ? true : false}>
+            <TextWrapper order={i === 0 ? true : true}>
               <Text order={i} >{item.node.description}</Text>
             </TextWrapper>
           </Wrapper>
@@ -75,11 +73,11 @@ const SectionWrapper = styled.div`
   margin: 0 auto;
   padding: 5rem calc((100vw - 1300px) / 2);
   ${({ order }) =>
-    order == 0 ? `background-color: #fff` : "background-color:  #5c38c0"};
+    order === 0 ? `background-color: #fff` : "background-color:  #5c38c0"};
     
 
   @media screen and (max-width: 768px) {
-    ${({ order }) => order == 0 ? "padding-bottom: 3rem" : "padding-bottom: 12rem"};
+    ${({ order }) => order === 0 ? "padding-bottom: 3rem" : "padding-bottom: 12rem"};
 
   }
 
@@ -107,7 +105,7 @@ const Header = styled.h1`
   color: #272727;
   margin-top: 1rem;
   font-weight: 500;
-  ${({ order }) => (order == 1 ? "color: #f8f8f8" : "color: #272727")}
+  ${({ order }) => (order === 1 ? "color: #f8f8f8" : "color: #272727")}
 `;
 
 const Text = styled.p`
@@ -115,7 +113,8 @@ const Text = styled.p`
   font-size: 1.2rem;
   color: #222222;
   margin-bottom: 1em;
-  ${({ order }) => (order == 1 ? "color: #f8f8f8" : "color: #272727")}
+
+  ${({ order }) => (order === 1 ? "color: #f8f8f8" : "color: #272727")}
 `;
 
 const TextWrapper = styled.div`
@@ -128,10 +127,11 @@ const TextWrapper = styled.div`
     padding: 0.5rem;
   }
 
+
   ${({ order }) =>
-    order == 0
+    order === 1
       ? `  @media screen and (max-width: 768px) {
-    margin-top: -10em;
+    display: none;
   }`
       : ""}
 
@@ -139,7 +139,7 @@ const TextWrapper = styled.div`
     order &&
     `
   @media screen and (max-width: 768px) {
-    margin-top: -10em;
+    margin-top: -14em;
   }
     `}
 `;
@@ -149,9 +149,14 @@ const Illustration = styled(FastSystem)`
   padding: 1rem;
   margin: 0 auto;
   margin-top: -5em;
+
+
   @media screen and (max-width: 768px) {
     margin-top: -15em;
     width: clamp(50%, 65%, 100%);
+    :nth-child(1) {
+    margin-bottom: 2rem;
+  }
   }
 
   ${({ order }) =>

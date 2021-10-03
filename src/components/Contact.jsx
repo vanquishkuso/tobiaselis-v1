@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { SubmitButton } from "./SubmitButton";
-import LoginBackground from "./LoginBackground";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
 
 const Contact = () => {
   const [field, setField] = useState({
@@ -78,7 +76,7 @@ const Contact = () => {
       field.name.length >= 1 &&
       field.email.length >= 1 &&
       field.message.length >= 1 &&
-      checked == true
+      checked === true
     ) {
       setDisabled(false);
     } else {
@@ -206,6 +204,7 @@ const Header = styled.h2`
 const FormWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     padding-bottom: 2rem;
@@ -216,15 +215,16 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin: 0 auto;
+  margin-left: 2rem;
   background: #f8f8f8;
 
   padding: 2rem 1rem;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin: 0 auto;
+
 
   @media screen and (max-width: 768px) {
+    margin: 0 auto;
     width: 87%;
     order: 2;
   }
@@ -269,6 +269,7 @@ const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
+
   width: 90%;
   @media screen and (max-width: 1100px) {
     width: 97%;

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "gatsby";
 import { Link, animateScroll as scroll } from "react-scroll";
-import { FaBars } from "react-icons/fa";
 import { MenuData } from "../data/MenuData";
 import styled from "styled-components";
 
@@ -148,6 +146,9 @@ const Nav = styled.nav`
   position: sticky;
   top: 0;
   transition: 0.5s ease;
+
+
+  margin: 0 auto;
 `;
 
 const NavHeaderLink = styled(Link)`
@@ -156,7 +157,7 @@ const NavHeaderLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0 1rem;
+  padding: 0 2rem;
   height: 100%;
   font-size: 1.5rem !important;
   cursor: pointer;
@@ -239,7 +240,7 @@ const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0 1rem;
+  padding: 0 2rem;
   height: 100%;
   cursor: pointer;
   z-index: 12;

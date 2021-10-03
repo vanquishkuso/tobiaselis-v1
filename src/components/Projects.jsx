@@ -28,8 +28,7 @@ const Projects = () => {
       }
     }
   `);
-  const projectData = data.allProjectDataJson.edges;
-  console.log(data);
+
   const getProjects = (data) => {
     const projects = [];
     data.allProjectDataJson.edges.forEach((item, i) => {
@@ -98,7 +97,7 @@ const ProjectWrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(350px, max-content));
   justify-content: center;
 
-  grid-gap: 2rem;
+  grid-gap: 5rem;
   @media screen and (max-width: 768px) {
     grid-gap: 3rem;
     padding-bottom: 3rem;
