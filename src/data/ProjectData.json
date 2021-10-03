@@ -6,7 +6,7 @@
     "category": "System",
     "short_description": "En webbapplikationen skapad för att förenkla dagsrapportering av arbetstid.",
     "description": "Ophella skapades för att underlätta inrapportering av arbetstiden. Applikationen är anpassningspar och skalbar för olika miljöer.",
-    "frontend": "React.js, styled-components",
+    "frontend": "React.js",
     "backend": "Node.js, Express.js, PostgreSQL",
     "image": "./images/ophella.jpg",
     "link": "https://ophella.se"
@@ -26,9 +26,9 @@
     "title": "Ledstar",
     "slug": "ledstar",
     "category": "Webbplats",
-    "short_description": "Webbplats åt märket belysningstillverkaren Ledstar.",
+    "short_description": "Webbplats åt belysningstillverkaren Ledstar.",
     "description": "En webbplats åt den svenska marknaden för belysningstillverkaren Ledstar. Ledstar är baserad i Kina och har sedan 2007 fokuserat på att producera högkvalitetsbelysningar av LED-chip från premiumtillverkare som CREE och Epistar.",
-    "frontend": "Next.js, styled-components",
+    "frontend": "Next.js",
     "backend": "Strapi",
     "image": "./images/lanseras-snart.jpg",
     "link": null

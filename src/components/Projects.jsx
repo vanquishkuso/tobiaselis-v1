@@ -49,15 +49,14 @@ const Projects = () => {
             </TextWrap>
           </ProjectInfo>
           {item.node.link != null ? (
-            <Button
+            <ProjectButton
               to={`/projekt/${item.node.link}`}
               //  to={`/projekt/${item.node.slug}`}
               primary="true"
               round="true"
-              style={{ margin: "0 auto", marginTop: "1em" }}
             >
               Besök webbplatsen
-            </Button>
+            </ProjectButton>
           ) : (
             ""
           )}
@@ -157,6 +156,15 @@ const ProjectInfo = styled.p`
 
   @media screen and (max-width: 280px) {
     padding: 0 1rem;
+  }
+`;
+
+const ProjectButton = styled(Button)`
+  margin: 0 auto;
+  margin-top: 1rem;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 2rem;
   }
 `;
 
