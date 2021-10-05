@@ -5,6 +5,12 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import { policy } from "../data/policy";
+import { Link } from "gatsby";
 
 const Contact = () => {
   const [field, setField] = useState({
@@ -28,6 +34,24 @@ const Contact = () => {
       form.reset();
     }
   };
+
+  // MUI modal settings start
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 600,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+  // MUI modal settings end
 
   const handleOnSubmit = (e) => {
     setSentMail(true);
@@ -125,24 +149,41 @@ const Contact = () => {
 
             <CheckboxWrapper>
               <Checkbox type="checkbox" onChange={() => setChecked(!checked)} />
-              <p>
-                Jag godkänner integritetspolicyn samt att uppgifterna ovan
-                sparas och skickas till mejlleverantören
-              </p>
+              <div>
+                <p>
+                  Jag godkänner{" "}
+                  <a
+                    style={{
+                      color: "#5c38c0",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                    }}
+                    onClick={handleOpen}
+                  >
+                    integritetspolicy
+                  </a>{" "}
+                  samt att uppgifterna ovan sparas och skickas till
+                  mejlleverantören
+                </p>
+              </div>
             </CheckboxWrapper>
             <ButtonWrapper>
-              <Button
+              <ButtonSubmit
                 type="submit"
                 round="true"
                 primary="false"
                 big="true"
                 disabled={disabled}
               >
-              
-               <p style={{opacity: sentMail ? "0" : "100"}}>Skicka</p>
-               {sentMail ? <div style={{transition: "0.5s ease"}}><Spinner/></div> : ""}
-              </Button>
-            
+                <p style={{ opacity: sentMail ? "0" : "100" }}>Skicka</p>
+                {sentMail ? (
+                  <div style={{ transition: "0.5s ease" }}>
+                    <Spinner />
+                  </div>
+                ) : (
+                  ""
+                )}
+              </ButtonSubmit>
             </ButtonWrapper>
           </Form>
           <TextWrapper>
@@ -150,6 +191,88 @@ const Contact = () => {
               Har du några frågor om utveckling, projekten eller bara vill säga
               hej? Var inte blyg, kontakta mig genom kontaktformuläret!
             </Text>
+
+            <div>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                  >
+                    Integritets- och cookiepolicy
+                  </Typography>
+                  <Typography
+                    className="modal-modal-description"
+                    sx={{ mt: 2 }}
+                  >
+                    {policy[0].integritypolicy}
+                  </Typography>
+
+                  <Link
+                    to={policy[0].integritypolicy_link}
+                    style={{ color: "#5c38c0", fontWeight: "bold" }}
+                  >
+                    Länk till getform.io integritetspolicy
+                  </Link>
+
+                  <Typography
+                    className="modal-modal-description"
+                    sx={{ mt: 2 }}
+                  >
+                    {policy[0].cookiepolicy}
+                  </Typography>
+                  <Link
+                    to={policy[0].cookie_link}
+                    style={{ color: "#5c38c0", fontWeight: "bold" }}
+                  >
+                    Länk till Post- och Telestyrelsen om kakor
+                  </Link>
+
+                  <Typography
+                    className="modal-modal-description"
+                    sx={{ mt: 2 }}
+                  >
+                    {policy[0].cookie_providers.cookieconsent}
+                  </Typography>
+
+                  <Typography
+                    className="modal-modal-description"
+                    sx={{ mt: 2 }}
+                  >
+                    {policy[0].cookie_providers.scroll}
+                  </Typography>
+
+                  <Typography
+                    className="modal-modal-description"
+                    sx={{ mt: 2 }}
+                  >
+                    <a
+                      href={`mailto:${policy[0].mail}`}
+                      style={{ color: "#5c38c0", fontWeight: "bold" }}
+                    >
+                      {policy[0].mail}
+                    </a>
+                  </Typography>
+
+                  <Typography
+                    className="modal-modal-description"
+                    sx={{ mt: 2 }}
+                  >
+                    {policy[0].contact_information}
+                  </Typography>
+
+                  <ButtonSubmit round primary onClick={handleClose}>
+                    Stäng rutan
+                  </ButtonSubmit>
+                </Box>
+              </Modal>
+            </div>
           </TextWrapper>
         </FormWrapper>
         <ToastContainer />
@@ -189,7 +312,6 @@ const Wrapper = styled.div`
   background-color: #5c38c0;
   min-height: 75vh;
   padding: 3rem calc((100vw - 1300px) / 2);
-
 `;
 
 const Header = styled.h2`
@@ -222,7 +344,6 @@ const Form = styled.form`
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-
   @media screen and (max-width: 768px) {
     margin: 0 auto;
     width: 87%;
@@ -251,7 +372,7 @@ const Input = styled.input`
   font-size: 1.2rem;
 `;
 
-const Button = styled(SubmitButton)`
+const ButtonSubmit = styled(SubmitButton)`
   margin: 0 auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
