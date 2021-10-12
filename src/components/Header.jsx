@@ -193,7 +193,7 @@ const Bars = styled.div`
       transform: translateY(10px) rotate(45deg);
     }
     :nth-child(3) {
-      transform:  translateY(-10px) rotate(135deg);
+      transform:  translateY(-8px) rotate(135deg);
     }
     :nth-child(2) {
       opacity: 0;
