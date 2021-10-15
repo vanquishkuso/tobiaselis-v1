@@ -50,7 +50,7 @@ const Projects = () => {
           </ProjectInfo>
           {item.node.link != null ? (
             <ProjectButton
-              to={`/projekt/${item.node.link}`}
+              to={`${item.node.link}`}
               //  to={`/projekt/${item.node.slug}`}
               primary="true"
               round="true"
