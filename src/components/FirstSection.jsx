@@ -29,12 +29,11 @@ const FirstSection = () => {
     const sections = [];
     data.allSectionDataJson.edges.forEach((item, i) => {
       sections.push(
-        <div style={{paddingBottom: "-2rem"}}>
+        <div style={{ paddingBottom: "-2rem" }}>
           {" "}
-
-          <SectionWrapper order={i} style={{ minHeight: "75vh" }}>
+          <SectionWrapper order={i}>
             <Header order={i}>{item.node.title}</Header>
-            <Wrapper>
+            <Wrapper order={i}>
               {/* <Img
               image={item.node.image.childImageSharp.gatsbyImageData}
               style={{ order: i }}
@@ -49,20 +48,20 @@ const FirstSection = () => {
               </TextWrapper>
             </Wrapper>
           </SectionWrapper>
-         
         </div>
       );
     });
     return sections;
   };
-  return <Container>          {getSectionData(data)}</Container>;
+  return <Container> {getSectionData(data)}</Container>;
 };
 
 export default FirstSection;
 
 const Container = styled.div`
-  min-height: 100vh;
   color: #fff;
+  height: auto;
+
 `;
 
 const Wrapper = styled.div`
@@ -70,19 +69,21 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   padding: 1rem;
-
+  height: 100%;
   grid-auto-flow: dense;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     justify-items: center;
+    margin: 0;
   }
+
+  ${({order}) => order === 1 ? "margin-top: -5rem" : ""}
 `;
 
 const SectionWrapper = styled.div`
-
-  margin: 0 auto;
   padding: 5rem calc((100vw - 1300px) / 2);
+
   ${({ order }) =>
     order === 0 ? `background-color: #fff` : "background-color:  #5c38c0"};
 
@@ -92,23 +93,10 @@ const SectionWrapper = styled.div`
   }
 `;
 
-// const Img = styled(GatsbyImage)`
-//   width: clamp(20vw, 100%, 100%);
-//   height: 100%;
-//   -o-object-fit: cover;
-//   object-fit: cover;
-//   border-radius: 10px;
-//   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-//   @media screen and (max-width: 768px) {
-//     width: 90%;
-//     order: 0 !important;
-//   }
-// `;
-
 const Header = styled.h1`
   font-size: clamp(2rem, 5vw, 2.5rem);
   text-align: center;
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
   color: #272727;
   margin-top: 1rem;
   font-weight: 500;
@@ -128,8 +116,8 @@ const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
 
+  padding: 2rem;
   @media screen and (max-width: 768px) {
     padding: 0.5rem;
   }
@@ -153,15 +141,11 @@ const TextWrapper = styled.div`
 const Illustration = styled(FastSystem)`
   width: 90%;
   padding: 1rem;
-  margin: 0 auto;
-  margin-top: -5em;
 
   @media screen and (max-width: 768px) {
-    margin-top: -16em;
     width: clamp(50%, 65%, 100%);
-    :nth-child(1) {
-      margin-bottom: 2rem;
-    }
+    margin-top: -14rem;
+    margin-bottom: 0.5rem;
   }
 
   ${({ order }) =>
@@ -178,10 +162,10 @@ const Illustration = styled(FastSystem)`
 const Illustration2 = styled(FastDeveloper)`
   width: 90%;
   padding: 1rem;
-  margin: 0 auto;
-  margin-top: -5em;
+
   @media screen and (max-width: 768px) {
-    margin-top: -18em;
+    margin-top: -16em;
+    margin-bottom: -1.5rem;
     width: clamp(50%, 65%, 100%);
   }
 

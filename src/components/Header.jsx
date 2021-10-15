@@ -38,6 +38,9 @@ const Header = () => {
         <Bars className={openMenu ? "isOpened" : "isClosed"} />
         <Bars className={openMenu ? "isOpened" : "isClosed"} />
         <Bars className={openMenu ? "isOpened" : "isClosed"} />
+        <BarTitle className={openMenu ? "isOpened" : "isClosed"}>
+          {openMenu ? "stäng" : "meny"}
+        </BarTitle>
       </BarWrapper>
 
       <MobileMenu className={openMenu ? "isOpened" : "isClosed"}>
@@ -147,7 +150,6 @@ const Nav = styled.nav`
   top: 0;
   transition: 0.5s ease;
 
-
   margin: 0 auto;
 `;
 
@@ -178,7 +180,6 @@ const BarWrapper = styled.div`
   z-index: 100;
 `;
 const Bars = styled.div`
-  margin-top: 0.3rem;
   display: none;
   border: #f8f8f8 solid 2.5px;
   background-color: #f8f8f8;
@@ -188,19 +189,25 @@ const Bars = styled.div`
     cursor: pointer;
   }
 
-  &.isOpened {
-    :nth-child(1) {
-      transform: translateY(10px) rotate(45deg);
-    }
-    :nth-child(3) {
-      transform:  translateY(-8px) rotate(135deg);
-    }
-    :nth-child(2) {
-      opacity: 0;
+  :nth-child(1) {
+    &.isOpened {
+      margin-top: 0.5rem;
+      transform: rotate(45deg);
     }
   }
-
-  &.isClosed {
+  :nth-child(3) {
+    margin-top: 0.39rem;
+    &.isOpened {
+      margin-top: -0.25rem;
+      transform: rotate(135deg);
+    }
+  }
+  :nth-child(2) {
+    margin-top: 0.39rem;
+    &.isOpened {
+      margin-top: 3rem;
+      display: none;
+    }
   }
 `;
 // const Bars = styled(FaBars)`
@@ -226,6 +233,22 @@ const Bars = styled.div`
 
 //   }
 // `;
+
+const BarTitle = styled.p`
+  color: #f8f8f8;
+  letter-spacing: 1px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-top: 0.3rem;
+  display: none;
+  &.isOpened {
+  margin-top: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+`;
 
 const Menu = styled.nav`
   display: flex;

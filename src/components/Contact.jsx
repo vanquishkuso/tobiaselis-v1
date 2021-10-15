@@ -41,15 +41,21 @@ const Contact = () => {
   const handleClose = () => setOpen(false);
 
   const style = {
+    margin: "auto",
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "70%",
+    width: "80%",
+    height: "auto",
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
     p: 4,
+
+    "@media screen and (max-width: 768px)": {
+      top: "95%",
+    },
   };
   // MUI modal settings end
 
@@ -198,6 +204,7 @@ const Contact = () => {
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+                style={{ overflow: "scroll" }}
               >
                 <Box sx={style}>
                   <Typography
@@ -310,8 +317,12 @@ const CheckboxWrapper = styled.div`
 
 const Wrapper = styled.div`
   background-color: #5c38c0;
-  min-height: 75vh;
+  min-height: 80vh;
   padding: 3rem calc((100vw - 1300px) / 2);
+
+  @media screen and (max-width: 810px) {
+    min-height: 90vh;
+  }
 `;
 
 const Header = styled.h2`
@@ -329,7 +340,7 @@ const FormWrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
-    padding-bottom: 2rem;
+    padding-bottom: 5rem;
   }
 `;
 
@@ -339,7 +350,6 @@ const Form = styled.form`
   width: 80%;
   margin-left: 2rem;
   background: #f8f8f8;
-
   padding: 2rem 1rem;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -348,6 +358,10 @@ const Form = styled.form`
     margin: 0 auto;
     width: 87%;
     order: 2;
+  }
+
+  @media screen and (max-width: 810px) {
+    width: 90%;
   }
 `;
 
@@ -382,7 +396,9 @@ const Text = styled.p`
   font-weight: 400;
   font-size: 1.2rem;
   color: #f8f8f8;
-  margin-bottom: 1em;
+  @media screen and (max-width: 768px) {
+    padding-bottom: 2rem;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -390,8 +406,8 @@ const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
-
   width: 90%;
+
   @media screen and (max-width: 1100px) {
     width: 97%;
     margin: 0 auto;

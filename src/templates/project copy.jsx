@@ -19,3 +19,15 @@
 // };
 
 // export default Project;
+
+// {
+//   "title": "Ledstar",
+//   "slug": "ledstar",
+//   "category": "Webbplats",
+//   "short_description": "Webbplats åt belysningstillverkaren Ledstar.",
+//   "description": "En webbplats åt den svenska marknaden för belysningstillverkaren Ledstar. Ledstar är baserad i Kina och har sedan 2007 fokuserat på att producera högkvalitetsbelysningar av LED-chip från premiumtillverkare som CREE och Epistar.",
+//   "frontend": "Next.js",
+//   "backend": "Strapi",
+//   "image": "./images/lanseras-snart.jpg",
+//   "link": null
+// },

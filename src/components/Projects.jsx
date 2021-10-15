@@ -77,7 +77,7 @@ const Projects = () => {
 export default Projects;
 
 const Container = styled.div`
-  min-height: 100vh;
+  min-height: 70vh;
   margin-top: -7rem;
   padding: 3rem calc((100vw - 1300px) / 2);
   color: #fff;
@@ -133,6 +133,7 @@ const ProjectCard = styled.div`
   width: 350px;
   position: relative;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   filter: brightness(90%);
   &:hover {
     filter: brightness(110%);
@@ -160,8 +161,10 @@ const ProjectInfo = styled.p`
 `;
 
 const ProjectButton = styled(Button)`
-  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
   margin-top: 1rem;
+  margin-bottom: 1rem;
 
   @media screen and (max-width: 768px) {
     margin-bottom: 2rem;

@@ -25,22 +25,3 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     })
   })
 };
-
-//  exports.createPages = ({ actions: { createPage } }) => {
-//    const projects = require("./src/data/ProjectData.json");
-//    projects.forEach((project) => {
-//      createPage({
-//        path: `/projekt/${project.slug}/`,
-//        component: require.resolve("./src/pages/templates/project.jsx"),
-//        context: {
-//          title: project.title,
-//          category: project.category,
-//          short_description: project.ort_description,
-//          description: project.desWcription,
-//          frontend: project.frontend,
-//          backend: project.backend,
-//          image: project.image,
-//        },
-//      });
-//    });
-//  };
