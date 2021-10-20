@@ -84,6 +84,7 @@ const Container = styled.div`
   position: relative;
   margin-top: -80px;
   color: #fff;
+  /* margin: 0 auto; */
 
   :before {
     content: "";
